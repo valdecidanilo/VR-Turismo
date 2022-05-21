@@ -44,7 +44,12 @@ public class GyroManager : MonoBehaviour
         if(gyroActive){
             rotation = gyro.attitude;
             debug.text = "Rotation: " + rotation + "\n" + "Rotation Rate: " + gyro.rotationRate + "\n" + "Aceleration: " + gyro.userAcceleration;
-            bird.position = new Vector3(Mathf.Clamp(bird.position.x + (-gyro.rotationRate.z / 0.4f),-5f, 5f), bird.position.y, bird.position.z);
+            bird.position = new Vector3(Mathf.Clamp(bird.position.x + (-gyro.rotationRate.z / 15f),-3f, 3f), bird.position.y, bird.position.z);
+        }else{
+            var vel = Input.GetAxis("Horizontal") / 15f;
+            debug.text = "Rotation: " + vel;
+            bird.GetComponentInChildren<Animator>().SetFloat("SpeedX", vel);
+            bird.position = new Vector3(Mathf.Clamp(bird.position.x + (vel),-3f, 3f), bird.position.y, bird.position.z);
         }
     }
     public Quaternion GetGyroRotation(){

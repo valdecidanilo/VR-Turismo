@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Bird : MonoBehaviour
 {
     [Range(0f, 500f)]public float velocity;
@@ -22,6 +22,9 @@ public class Bird : MonoBehaviour
 	private void OnTriggerEnter(Collider other) {
 		if(other.tag == "Point"){
 			Destroy(other.gameObject);
+		}
+		if(other.tag == "Block"){
+			SceneManager.LoadScene("Minigame0");
 		}
 	}
 
