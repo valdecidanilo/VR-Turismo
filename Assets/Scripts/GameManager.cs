@@ -30,10 +30,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Create " + oldPos.transform.position.z);
         CheckBlock();
         var next = new Vector3(0f, 0f, oldPos.transform.position.z + 6.8f);
-        GameObject b = Instantiate(blocks[0], next, Quaternion.identity);
+        GameObject b = Instantiate(blocks[countBlocks], next, Quaternion.identity);
         
         //b.transform.position = next;
         countBlocks++;
+        if(countBlocks > blocks.Length -1){
+            countBlocks = 0;
+        }
         b.name = "Box " + countBlocks;
         currentBlocks.Insert(0, b);
         
