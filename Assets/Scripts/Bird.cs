@@ -34,7 +34,6 @@ public class Bird : MonoBehaviour
 			}else{
 				defense = false;
 				timerDefense = 0;
-				GetComponentInChildren<SphereCollider>().enabled = true;
 				ptcDefense.SetActive(false);
 			}
 		}
@@ -42,6 +41,7 @@ public class Bird : MonoBehaviour
 	void Move(){
 		transform.Translate(Vector3.forward * velocity * Time.deltaTime);
 		if(gyroActive){
+			gameManager.txtDebug.text = "Rotation: " + gyro.attitude + "\n" + "Rotation Rate: " + gyro.rotationRate + "\n" + "Aceleration: " + gyro.userAcceleration;
             GetComponentInChildren<Animator>().SetFloat("SpeedX", -gyro.rotationRate.z / 15f);
             transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x + (-gyro.rotationRate.z / 15f),-maxWidth, maxWidth), transform.localPosition.y, transform.localPosition.z);
         }else{
@@ -58,12 +58,11 @@ public class Bird : MonoBehaviour
 			}else if(currentType == TypePowerUp.Defense){
 				defense = true;
 				timerDefense = 8f;
-				GetComponentInChildren<SphereCollider>().enabled = false;
 				ptcDefense.SetActive(true);
 			}
 			Destroy(other.gameObject);
 		}
-		if(other.tag == "Block"){
+		if(other.tag == "Block" && !defense){
 			SceneManager.LoadScene("Minigame0");
 		}
 		if(other.tag == "Create"){

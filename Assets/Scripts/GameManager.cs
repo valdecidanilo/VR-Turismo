@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public float time;
     public float distance;
-    public Text txtDistance;
+    public Text txtDistance, txtDebug;
     public GameObject[] blocks;
     public int countBlocks;
     public List<GameObject> currentBlocks;
