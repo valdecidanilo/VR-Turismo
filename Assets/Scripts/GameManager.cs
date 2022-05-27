@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> currentBlocks;
     public static Action<GameObject> createBlock;
     void Start (){
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         createBlock += CreateBlock;
     }
     void Destroy (){
