@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Bird : MonoBehaviour
 {
-    [Range(0f, 500f)]public float velocity;
+    [Range(0.5f, 10f)]public float velocity;
     Rigidbody rb;
 	private bool gyroActive, defense;
 	public int maxWidth;
 	public float timerDefense;
 	private Gyroscope gyro;
+	public Transform camera;
 	public GameManager gameManager;
 	public GameObject ptcDefense;
 	void Start () {
@@ -38,10 +39,19 @@ public class Bird : MonoBehaviour
 			}
 		}
 	}
+	protected void OnGUI()
+    {
+        GUI.skin.label.fontSize = Screen.width / 40;
+
+        GUILayout.Label("Orientation: " + Screen.orientation);
+        GUILayout.Label("input.gyro.attitude: " + Input.gyro.attitude);
+        GUILayout.Label("width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
+    }
 	void Move(){
-		transform.Translate(Vector3.forward * velocity * Time.deltaTime);
+		camera.rotation = GyroToUnity(Input.gyro.attitude);
+		//transform.Translate(Vector3.forward * velocity * Time.deltaTime);
 		if(gyroActive){
-			gameManager.txtDebug.text = "Rotation: " + gyro.attitude + "\n" + "Rotation Rate: " + gyro.rotationRate + "\n" + "Aceleration: " + gyro.userAcceleration;
+			//gameManager.txtDebug.text = "Rotation: " + gyro.attitude + "\n" + "Rotation Rate: " + gyro.rotationRate + "\n" + "Aceleration: " + gyro.userAcceleration;
             GetComponentInChildren<Animator>().SetFloat("SpeedX", -gyro.rotationRate.z / 15f);
             transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x + (-gyro.rotationRate.z / 15f),-maxWidth, maxWidth), transform.localPosition.y, transform.localPosition.z);
         }else{
@@ -50,6 +60,10 @@ public class Bird : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x + (vel),-maxWidth, maxWidth), transform.localPosition.y, transform.localPosition.z);
         }
 	}
+	private static Quaternion GyroToUnity(Quaternion q)
+    {
+        return new Quaternion(q.x, q.y, -q.z, -q.w);
+    }
 	private void OnTriggerEnter(Collider other) {
 		if(other.tag == "Point"){
 			TypePowerUp currentType = other.GetComponent<PowerUp>().type;
