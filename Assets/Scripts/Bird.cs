@@ -48,8 +48,8 @@ public class Bird : MonoBehaviour
         GUILayout.Label("width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
     }
 	void Move(){
-		camera.rotation = GyroToUnity(Input.gyro.attitude);
-		//transform.Translate(Vector3.forward * velocity * Time.deltaTime);
+		//camera.rotation = GyroToUnity(Input.gyro.attitude);
+		transform.Translate(Vector3.forward * velocity * Time.deltaTime);
 		if(gyroActive){
 			//gameManager.txtDebug.text = "Rotation: " + gyro.attitude + "\n" + "Rotation Rate: " + gyro.rotationRate + "\n" + "Aceleration: " + gyro.userAcceleration;
             GetComponentInChildren<Animator>().SetFloat("SpeedX", -gyro.rotationRate.z / 15f);
