@@ -47,6 +47,7 @@ public class Bird : MonoBehaviour
         GUILayout.Label("width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
     }
 	void Move(){
+		if(velocity == 0){ return; }
 		//camera.rotation = GyroToUnity(Input.gyro.attitude);
 		transform.Translate(Vector3.forward * velocity * Time.deltaTime);
 		if(gyroActive){
