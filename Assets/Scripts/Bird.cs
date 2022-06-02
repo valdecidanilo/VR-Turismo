@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Duarte;
 public class Bird : MonoBehaviour
 {
     [Range(0.5f, 10f)]public float velocity;
     Rigidbody rb;
 	private bool gyroActive, defense;
-	public int maxWidth;
+	public int maxWidth, life;
 	public float timerDefense;
 	private Gyroscope gyro;
-	public Transform camera;
 	public GameManager gameManager;
 	public GameObject ptcDefense;
 	void Start () {
@@ -60,6 +59,9 @@ public class Bird : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x + (vel),-maxWidth, maxWidth), transform.localPosition.y, transform.localPosition.z);
         }
 	}
+	public void AddVelocity(){
+		velocity += 0.1f;
+	}
 	private static Quaternion GyroToUnity(Quaternion q)
     {
         return new Quaternion(q.x, q.y, -q.z, -q.w);
@@ -68,7 +70,7 @@ public class Bird : MonoBehaviour
 		if(other.tag == "Point"){
 			TypePowerUp currentType = other.GetComponent<PowerUp>().type;
 			if(currentType == TypePowerUp.Speed){
-				velocity += 0.1f;
+				AddVelocity();
 			}else if(currentType == TypePowerUp.Defense){
 				defense = true;
 				timerDefense = 8f;
@@ -77,7 +79,15 @@ public class Bird : MonoBehaviour
 			Destroy(other.gameObject);
 		}
 		if(other.tag == "Block" && !defense){
-			SceneManager.LoadScene("Minigame0");
+			game.android.Vibrate(70);
+			if(life > 1){
+				life--;
+				gameManager.UpdateLife(life);
+			}else{
+				velocity = 0;
+				gameManager.CallGameOver();
+				//SceneManager.LoadScene("Minigame0");
+			}
 		}
 		if(other.tag == "Create"){
 			gameManager.CreateBlock(other.transform.parent.gameObject);

@@ -211,7 +211,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342837873436866981}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -299,8 +299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718763627478319994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2069, y: 0.5532, z: 3.5558}
-  m_LocalScale: {x: 1.4717357, y: 2.109112, z: 0.39308053}
+  m_LocalPosition: {x: 1.2661, y: 0.5532, z: 3.5558}
+  m_LocalScale: {x: 1.3533787, y: 2.109112, z: 0.39308053}
   m_Children: []
   m_Father: {fileID: 6542209740871087549}
   m_RootOrder: 7
@@ -360,7 +360,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718763627478319994}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -565,7 +565,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4400636564713136656}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -714,7 +714,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5891158882377631978}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -989,7 +989,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6024933365933848559}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1076,13 +1076,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6888686415577044343}
-  m_LocalRotation: {x: 0.0000049735722, y: -0.000018736604, z: -0.0004878785, w: 0.9999999}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.40847394, y: 0.68078953, z: 0.68078953}
+  m_LocalScale: {x: 0.95913625, y: 0.68078953, z: 0.68078953}
   m_Children: []
   m_Father: {fileID: 6888686417182038898}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.001, y: -0.002, z: -0.056}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6888686415577044339
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1434,7 +1434,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7208152769660811807}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1541,7 +1541,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8004007172740456711}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1573,8 +1573,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8049239226546969701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.206, y: 0.566, z: -2.7058}
-  m_LocalScale: {x: 0.24336258, y: 2.1328, z: 1.1283948}
+  m_LocalPosition: {x: 0.1519, y: 0.566, z: -2.721}
+  m_LocalScale: {x: 0.13521379, y: 2.1328, z: 0.91915935}
   m_Children: []
   m_Father: {fileID: 6542209740871087549}
   m_RootOrder: 0
@@ -1634,7 +1634,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8049239226546969701}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5637,7 +5637,7 @@ PrefabInstance:
     - target: {fileID: 5523831075431377976, guid: d0730fd7f52f55948835d1d5233bef11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5523831075431377976, guid: d0730fd7f52f55948835d1d5233bef11,
         type: 3}
@@ -6375,7 +6375,7 @@ PrefabInstance:
     - target: {fileID: 5523831075431377976, guid: d0730fd7f52f55948835d1d5233bef11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5523831075431377976, guid: d0730fd7f52f55948835d1d5233bef11,
         type: 3}
