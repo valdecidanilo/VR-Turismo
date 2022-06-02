@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.SpatialTracking;
+//using UnityEngine.SpatialTracking;
 public enum TypePowerUp{
     Speed,
     Defense
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public Text txtDistance, txtDebug;
     public GameObject[] blocks;
     public int countBlocks;
-    public TrackedPoseDriver trackedHead;
+    //public TrackedPoseDriver trackedHead;
     public GameObject crossHair;
     public GameObject[] uiLife;
     public GameObject gameOverUI;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Minigame0");
     }
     public void CallGameOver(){
-        trackedHead.enabled = true;
+        //trackedHead.enabled = true;
         ActiveCrossHair(true);
         gameOverUI.SetActive(true);
     }
