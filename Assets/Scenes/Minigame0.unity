@@ -15107,6 +15107,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951747826}
   m_CullTransparentMesh: 0
+--- !u!1 &1963707148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6888686417182038897, guid: 278c0cc4021d82741bfb350ffc325f9c,
+    type: 3}
+  m_PrefabInstance: {fileID: 686739182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976312368
 GameObject:
   m_ObjectHideFlags: 0
@@ -15515,6 +15521,7 @@ MonoBehaviour:
   txtDistance: {fileID: 674875762}
   txtDebug: {fileID: 2133443061}
   blocks:
+  - {fileID: 6888686417182038897, guid: 49341859dfb8b1447b7d9358dc62e714, type: 3}
   - {fileID: 6888686417182038897, guid: c178a5c8a2f8d324f8cfbfb66c90e80c, type: 3}
   - {fileID: 6888686417182038897, guid: a964de146cb16e640b26e02b7516bfdd, type: 3}
   - {fileID: 6888686417182038897, guid: a914c80a42a3c8b4493c42410418cecb, type: 3}
@@ -15535,12 +15542,8 @@ MonoBehaviour:
     m_Bits: 256
   currentbutton: {fileID: 0}
   currentBlocks:
-  - {fileID: 0}
+  - {fileID: 1963707148}
   - {fileID: 746206411}
-  - {fileID: 6888686417182038897, guid: a964de146cb16e640b26e02b7516bfdd, type: 3}
-  - {fileID: 6888686417182038897, guid: a914c80a42a3c8b4493c42410418cecb, type: 3}
-  - {fileID: 6888686417182038897, guid: b57c5ac7626756641a045d2b820fca5f, type: 3}
-  - {fileID: 6888686417182038897, guid: 278c0cc4021d82741bfb350ffc325f9c, type: 3}
 --- !u!4 &2015334980
 Transform:
   m_ObjectHideFlags: 0
