@@ -5,15 +5,19 @@ using Duarte;
 public class Bird : MonoBehaviour
 {
     [Range(0.5f, 10f)]public float velocity;
-    Rigidbody rb;
+    public Rigidbody rb;
+	Animator anim;
 	private bool gyroActive, defense;
 	public int maxWidth, life;
 	public float timerDefense;
 	private Gyroscope gyro;
 	public GameManager gameManager;
 	public GameObject ptcDefense;
+	public ParticleSystem ptcFeather;
 	void Start () {
+		Debug.Log(GetComponent<Rigidbody>().gameObject.name);
 		rb = GetComponent<Rigidbody>();
+		anim = GetComponentInChildren<Animator>();
 		EnabledGyro();
 	}
 	public void EnabledGyro()
@@ -80,11 +84,14 @@ public class Bird : MonoBehaviour
 			Destroy(other.gameObject);
 		}
 		if(other.tag == "Block" && !defense){
+			ptcFeather.Play();
 			game.android.Vibrate(70);
 			if(life > 1){
 				life--;
 				gameManager.UpdateLife(life);
 			}else{
+				anim.SetTrigger("Fall");
+				anim.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0, -0.01f, 0), ForceMode.Impulse);
 				velocity = 0;
 				gameManager.CallGameOver();
 				//SceneManager.LoadScene("Minigame0");
