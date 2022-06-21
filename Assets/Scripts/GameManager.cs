@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     float currentFill;
     float timeToAcceptAction = 3f;
     float currentTimeAction;
-    bool isTest;
+    public bool isTest, isPlayGame;
     void Start (){
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         createBlock += CreateBlock;
@@ -39,26 +39,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        Vector3 mouseWorldPosition = Vector3.zero;
-        Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        Debug.DrawRay(screenCenterPoint, Camera.main.transform.position, Color.red);
-        Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-        if(Physics.Raycast(ray,out RaycastHit rayhit, 999f, layerUI)){
-            currentbutton = rayhit.collider.transform.gameObject;
-            if(currentTimeAction > 0){
-                currentTimeAction -= 1f * Time.deltaTime;
-                currentFill = Mathf.Abs(currentTimeAction - 3f) / 3f;
-                crossHair.GetComponent<Image>().fillAmount = currentFill;
-            }else{
-                if(!isTest){
-                    isTest = true;
-                    SceneManager.LoadScene("Minigame0");
-                }
-            }
-        }else{
-            currentTimeAction = timeToAcceptAction;
-            currentbutton = null;
-            crossHair.GetComponent<Image>().fillAmount = 0f;
+        if(SceneManager.GetActiveScene().name == "Menu"){
+            return;
         }
         if(bird.velocity == 0) { return; }
         distance += 0.1f * Time.deltaTime;
@@ -70,6 +52,9 @@ public class GameManager : MonoBehaviour
         txtDistance.text = distance.ToString("0.00");
 
         
+    }
+    public void GoGame(){
+        SceneManager.LoadScene("Minigame0");
     }
     public void CreateBlock(GameObject oldPos){
         CheckBlock();

@@ -30,7 +30,7 @@ public class Bird : MonoBehaviour
         }
         
     }
-	void Update () {
+	void FixedUpdate () {
 		Move();
 		if(defense){
 			if(timerDefense > 0){
@@ -91,7 +91,7 @@ public class Bird : MonoBehaviour
 				gameManager.UpdateLife(life);
 			}else{
 				anim.SetTrigger("Fall");
-				anim.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0, -0.01f, 0), ForceMode.Impulse);
+				anim.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0, -0.02f, 0), ForceMode.Impulse);
 				velocity = 0;
 				gameManager.CallGameOver();
 				//SceneManager.LoadScene("Minigame0");
