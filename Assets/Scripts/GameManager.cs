@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float distance, distanceTempSpeed;
     public Text txtDistance, txtDebug;
     public GameObject[] blocks;
+    public GameObject VRCam;
     public int countBlocks;
     //public TrackedPoseDriver trackedHead;
     public GameObject crossHair;

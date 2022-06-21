@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 public class TimerActionAim : MonoBehaviour
 {
-    float timeToAcceptAction = 3f;
+    float timeToAcceptAction = 1f;
     [SerializeField]float currentTimeAction;
     public GameObject crossHair;
     public GameManager gameManager;
@@ -27,7 +27,7 @@ public class TimerActionAim : MonoBehaviour
             if(currentTimeAction > 0){
                 crossHair.GetComponent<Image>().enabled = true;
                 currentTimeAction -= 1f * Time.deltaTime;
-                currentFill = Mathf.Abs(currentTimeAction - 3f) / 3f;
+                currentFill = Mathf.Abs(currentTimeAction - timeToAcceptAction) / timeToAcceptAction;
                 crossHair.GetComponent<Image>().fillAmount = currentFill;
             }else{
                 if(!gameManager.isTest){
