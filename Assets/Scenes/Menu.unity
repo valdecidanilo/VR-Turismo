@@ -1153,7 +1153,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 254.66342, y: 189.75452, z: 1}
+  m_Size: {x: 213, y: 145, z: 1}
   m_Center: {x: 3.9071083, y: -78.525856, z: 0.000036170968}
 --- !u!114 &384821165
 MonoBehaviour:
@@ -1198,15 +1198,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Restart
-        m_Mode: 1
+      - m_Target: {fileID: 914660900}
+        m_MethodName: Log
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Vinicula
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &384821166
@@ -1699,15 +1699,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Restart
-        m_Mode: 1
+      - m_Target: {fileID: 914660900}
+        m_MethodName: Log
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Voltar
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &854730558
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   txtDistance: {fileID: 0}
   txtDebug: {fileID: 0}
   blocks: []
-  VRCam: {fileID: 0}
+  VRCam: {fileID: 293987991}
   countBlocks: 0
   crossHair: {fileID: 0}
   uiLife: []
@@ -2948,7 +2948,6 @@ MonoBehaviour:
   currentTimeAction: 0
   crossHair: {fileID: 1078462459}
   gameManager: {fileID: 914660900}
-  currentbutton: {fileID: 0}
   layerUI:
     serializedVersion: 2
     m_Bits: 256
@@ -3677,7 +3676,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 254.66342, y: 189.75452, z: 1}
+  m_Size: {x: 213, y: 145, z: 1}
   m_Center: {x: 3.9071083, y: -78.525856, z: 0.000036170968}
 --- !u!114 &1642927838
 MonoBehaviour:
@@ -3722,15 +3721,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Restart
-        m_Mode: 1
+      - m_Target: {fileID: 914660900}
+        m_MethodName: Log
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Museu Queijo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1642927839
@@ -4075,7 +4074,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 254.66342, y: 189.75452, z: 1}
+  m_Size: {x: 213, y: 145, z: 1}
   m_Center: {x: 3.9071083, y: -78.525856, z: 0.000036170968}
 --- !u!1 &7642703053251279536
 GameObject:
@@ -4162,15 +4161,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Restart
-        m_Mode: 1
+      - m_Target: {fileID: 914660900}
+        m_MethodName: Log
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Parque
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7642703053251279539
@@ -4391,7 +4390,7 @@ RectTransform:
   m_GameObject: {fileID: 7642703053919078980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.91}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 0.007}
   m_Children:
   - {fileID: 1228534402}
   - {fileID: 7642703053628956774}

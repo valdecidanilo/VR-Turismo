@@ -54,7 +54,14 @@ public class GameManager : MonoBehaviour
 
         
     }
+    public void Log(string str){
+        Debug.Log(str);
+    }
+    public void ButtonAction(){
+        currentbutton.GetComponent<Button>().onClick?.Invoke();
+    }
     public void GoGame(){
+        
         SceneManager.LoadScene("Minigame0");
     }
     public void CreateBlock(GameObject oldPos){
