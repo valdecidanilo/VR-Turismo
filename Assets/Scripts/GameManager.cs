@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public GameObject[] uiLife;
     public GameObject gameOverUI;
     public Bird bird;
-    public LayerMask layerUI;
     public GameObject currentbutton;
     public List<GameObject> currentBlocks;
     public static Action<GameObject> createBlock;

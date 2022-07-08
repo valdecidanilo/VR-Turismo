@@ -24,10 +24,11 @@ public class TimerActionAim : MonoBehaviour
     void FixedUpdate(){
         if(isInteract){
             RaycastHit hit;
-            Debug.DrawRay(gameManager.VRCam.transform.localPosition, transform.TransformDirection(Vector3.forward), Color.red);
+            Debug.DrawRay(gameManager.VRCam.transform.position, transform.TransformDirection(Vector3.forward), Color.red);
             if (Physics.Raycast(gameManager.VRCam.transform.localPosition, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerUI))
             {
                 if(gameManager.currentbutton == null){
+                    Debug.Log("ACHOU");
                     gameManager.currentbutton = hit.collider.transform.gameObject; 
                 }
             }
