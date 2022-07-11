@@ -90,7 +90,7 @@ public class Bird : MonoBehaviour
 				life--;
 				gameManager.UpdateLife(life);
 			}else{
-				gameManager.VRCam.SetActive(true);
+				gameManager.VRSystem.SetActive(true);
 				anim.SetTrigger("Fall");
 				anim.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0, -0.02f, 0), ForceMode.Impulse);
 				velocity = 0;

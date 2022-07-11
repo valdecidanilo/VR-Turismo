@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float distance, distanceTempSpeed;
     public Text txtDistance, txtDebug;
     public GameObject[] blocks;
+    public GameObject VRSystem;
     public GameObject VRCam;
     public int countBlocks;
     //public TrackedPoseDriver trackedHead;
@@ -60,8 +61,10 @@ public class GameManager : MonoBehaviour
         currentbutton.GetComponent<Button>().onClick?.Invoke();
     }
     public void GoGame(){
-        
         SceneManager.LoadScene("Minigame0");
+    }
+    public void GoMenu(){
+        SceneManager.LoadScene("Menu");
     }
     public void CreateBlock(GameObject oldPos){
         CheckBlock();

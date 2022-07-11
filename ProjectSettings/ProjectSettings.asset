@@ -248,7 +248,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: cakeroll.keystore'
+  AndroidKeystoreName: C:/Users/Valdeci Danilo/Documents/cakeroll.keystore
   AndroidKeyaliasName: cake roll
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
