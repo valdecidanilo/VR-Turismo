@@ -3030,6 +3030,8 @@ MonoBehaviour:
   layerUI:
     serializedVersion: 2
     m_Bits: 256
+  currentbg: {fileID: 0}
+  bg: []
 --- !u!4 &537300110
 Transform:
   m_ObjectHideFlags: 0

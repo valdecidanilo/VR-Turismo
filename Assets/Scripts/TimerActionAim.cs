@@ -10,7 +10,10 @@ public class TimerActionAim : MonoBehaviour
     public GameObject crossHair;
     public GameManager gameManager;
     public LayerMask layerUI;
-    float currentFill;
+    public SpriteRenderer currentbg;
+    public Sprite[] bg;
+    int idBg;
+    float currentFill, timeNextBg;
     bool isInteract;
     void Awake(){
         //XRSettings.gameViewRenderMode = GameViewRenderMode.BothEyes;
@@ -22,9 +25,22 @@ public class TimerActionAim : MonoBehaviour
         isInteract = active;
     }
     void FixedUpdate(){
+        if(currentbg != null){
+            if(timeNextBg > 0){
+                timeNextBg -= 1f * Time.deltaTime;
+            }else{
+                idBg++;
+                if(idBg > bg.Length){
+                    idBg = 0;
+                }
+                timeNextBg = 3f;
+                currentbg.sprite = bg[idBg];
+            }
+        }
         if(isInteract){
             RaycastHit hit;
             Debug.DrawRay(gameManager.VRCam.transform.position, gameManager.VRCam.transform.TransformDirection(Vector3.forward), Color.red);
+            Debug.DrawRay(gameManager.VRCam.transform.localPosition, gameManager.VRCam.transform.TransformDirection(Vector3.forward), Color.blue);
             if (Physics.Raycast(gameManager.VRCam.transform.position, gameManager.VRCam.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerUI))
             {
                 Debug.Log(hit.collider.transform.gameObject.name);
