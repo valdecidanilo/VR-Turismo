@@ -11,9 +11,9 @@ public enum TypePowerUp{
 }
 public class GameManager : MonoBehaviour
 {
-    public float time;
+    public float time, timeReset;
     public float distance, distanceTempSpeed;
-    public Text txtDistance, txtDebug;
+    public Text txtDistance, txtDebug, txtResetTime;
     public GameObject[] blocks;
     public GameObject VRSystem;
     public GameObject VRCam;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     float currentFill;
     float timeToAcceptAction = 3f;
     float currentTimeAction;
-    public bool isTest, isPlayGame;
+    public bool isTest, isPlayGame, onTimeReset;
     void Start (){
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         createBlock += CreateBlock;
@@ -43,6 +43,16 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Menu"){
             return;
         }
+        if(onTimeReset){
+            if(timeReset > 0f){
+                timeReset -= 1f * Time.deltaTime;
+                txtResetTime.text = "Reiniciando em " + timeReset.ToString("00") + " segundos";
+            }else{
+                txtResetTime.text = "Reiniciando em 0 segundos";
+                onTimeReset = false;
+                GoMenu();
+            }   
+        }
         if(bird.velocity == 0) { return; }
         distance += 0.1f * Time.deltaTime;
         distanceTempSpeed += 0.1f * Time.deltaTime;
@@ -52,6 +62,10 @@ public class GameManager : MonoBehaviour
         }
         txtDistance.text = distance.ToString("0.00");
 
+    }
+    public void SetTimeReset(){
+        onTimeReset = true;
+        timeReset = 3f;
         
     }
     public void Log(string str){
