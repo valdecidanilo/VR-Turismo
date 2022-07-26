@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3585926025157726377}
   - component: {fileID: 4299310791120568566}
   - component: {fileID: 7815779714994692226}
+  - component: {fileID: 3585566543014712397}
   m_Layer: 8
   m_Name: btnMenu
   m_TagString: Untagged
@@ -145,6 +146,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 85.6, y: 24.9, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3585566543014712397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928704556041881810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df823b171521e424fa580d5737b5a421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteract: 0
 --- !u!1 &6410090766000579854
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +659,7 @@ GameObject:
   - component: {fileID: 6471504892045564032}
   - component: {fileID: 6471504892045564033}
   - component: {fileID: 620687765}
+  - component: {fileID: 898927605683039005}
   m_Layer: 8
   m_Name: btnRestart
   m_TagString: Untagged
@@ -777,6 +792,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 85.6, y: 24.9, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &898927605683039005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6471504892045564035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df823b171521e424fa580d5737b5a421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteract: 0
 --- !u!1 &6471504892154937942
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.XR;
-public class BallonAction : MonoBehaviour
+public class BallonAction : Interaction
 {
-    float timeToAcceptAction = 1f;
-    [SerializeField]float currentTimeAction;
-    public GameObject crossHair;
-    public LayerMask layerUI;
-    float currentFill;
     public bool isInteract;
-    void Awake(){
-        //XRSettings.gameViewRenderMode = GameViewRenderMode.BothEyes;
-    }
-    void Start(){
-        currentTimeAction = timeToAcceptAction;
+
+    public override void Execute(Pedalinho p){
+        p.points += 50;
+        GameObject txt = Instantiate(p.overPointsText);
+        Vector3 pos = transform.position;
+        txt.GetComponent<TextMesh>().text = "+" + 50;
+        txt.transform.position = new Vector3(pos.x + 0.5f, pos.y + 0.5f, pos.z);
+        txt.transform.LookAt(Camera.main.transform.position, Vector3.up);
+        Destroy(gameObject);
     }
     public void SetInteracton(bool active){
         isInteract = active;

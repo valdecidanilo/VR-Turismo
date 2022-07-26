@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour
     public void GoGame(){
         SceneManager.LoadScene("Minigame0");
     }
+    public void GoLago(){
+        SceneManager.LoadScene("vinicola");
+    }
     public void GoMenu(){
         SceneManager.LoadScene("Menu");
     }
