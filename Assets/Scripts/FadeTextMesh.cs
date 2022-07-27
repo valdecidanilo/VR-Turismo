@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class FadeTextMesh : MonoBehaviour
 {
-    public TextMesh txt;
+    public TextMeshPro txt;
     float op;
     void Start(){
-        txt = GetComponent<TextMesh>();
-        op = txt.color.a;
+        txt = GetComponentInChildren<TextMeshPro>();
+        op = 1f;
     }
     void Update()
     {

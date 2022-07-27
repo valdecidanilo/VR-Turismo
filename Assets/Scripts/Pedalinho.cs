@@ -9,6 +9,7 @@ public class Pedalinho : MonoBehaviour
     public Rigidbody rb;
     public GameObject ballon;
     public GameObject overPointsText;
+    public GameObject ptc;
     public Paths path;
     public GameObject crossHair;
     public GameObject canvasGameOver;
@@ -96,7 +97,22 @@ public class Pedalinho : MonoBehaviour
                 for (int i = 0; i < 3; i++)
                 {
                     GameObject b = Instantiate(ballon, path.paths[currentPoint - 1].transform);
-                    b.name = "Ballon " + i;
+                    BallonAction ba = b.GetComponent<BallonAction>();
+                    if(i == 0){
+                        b.name = "Ballon Vermelho";
+                        b.GetComponent<Renderer>().material.color = Color.red;
+                        ba.points = 50;
+                    }
+                    if(i == 1){
+                        b.name = "Ballon Verde";
+                        b.GetComponent<Renderer>().material.color = Color.green;
+                        ba.points = 30;
+                    }
+                    if(i == 2){
+                        b.name = "Ballon Azul";
+                        b.GetComponent<Renderer>().material.color = Color.blue;
+                        ba.points = 10;
+                    }
                     b.transform.localPosition = Vector3.zero;
                     Vector3 posFinal = Vector3.forward * 10f + Vector3.up * 3f;
                     float size = Random.Range(1f, 1.4f);
