@@ -5,18 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Pedalinho : MonoBehaviour
 {
-    [Range(1f, 50f)] public float velocity;
+    [Range(0f, 50f)] public float velocity;
     public Rigidbody rb;
     public GameObject ballon;
+    public Animator _anim;
     public GameObject overPointsText;
-    public GameObject ptc;
+    public GameObject ptc, bulletShot;
     public Paths path;
     public GameObject crossHair;
     public GameObject canvasGameOver;
     public LayerMask layerUI;
-    public Text txtPoints, txtTimer, txtFinal;
+    public Text txtPoints, txtTimer, txtFinal, txtBallons;
     float currentFill;
-    public int points;
+    public int points, ballons;
     [SerializeField]float currentTimeAction;
     float timeToAcceptAction = 1f;
     public float timeGeral;
@@ -30,18 +31,23 @@ public class Pedalinho : MonoBehaviour
     {
         Move();
         Aim();
-        if(timeGeral > 0){
+        /*if(timeGeral > 0){
             timeGeral -= 1f * Time.deltaTime;
         }else{
             if(!setGameOver){
                setGameOver = true;
                CallGameOver(); 
             }
+        }*/
+        if(ballons >= 10 && !setGameOver){
+            setGameOver = true;
+            CallGameOver(); 
         }
     }
     void LateUpdate() {
         txtPoints.text = points.ToString();
-        txtTimer.text = timeGeral.ToString("0:00");
+        txtBallons.text = ballons.ToString() + "/10";
+        //txtTimer.text = timeGeral.ToString("0:00");
     }
     void CallGameOver(){
         velocity = 0;
@@ -76,6 +82,9 @@ public class Pedalinho : MonoBehaviour
                 }else{
                     interact.Execute(this);
                     crossHair.GetComponent<Image>().enabled = false;
+                    _anim.SetTrigger("Shot");
+                    ballons++;
+                    StartCoroutine("waitShotGun");
                 }
             }
         }else{
@@ -127,5 +136,11 @@ public class Pedalinho : MonoBehaviour
         Quaternion lookOnLook = Quaternion.LookRotation(path.paths[currentPoint].transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.05f);
         transform.Translate(Vector3.forward * velocity * Time.deltaTime);
+    }
+    IEnumerator waitShotGun(){
+        bulletShot.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        bulletShot.SetActive(false);
+
     }
 }
