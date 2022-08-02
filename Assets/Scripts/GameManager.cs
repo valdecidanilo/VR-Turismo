@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Menu"){
             return;
         }
-        if(onTimeReset){
+        /*if(onTimeReset){
             if(timeReset > 0f){
                 timeReset -= 1f * Time.deltaTime;
                 txtResetTime.text = "Reiniciando em " + timeReset.ToString("00") + " segundos";
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                 onTimeReset = false;
                 GoMenu();
             }   
-        }
+        }*/
         if(bird.velocity == 0) { return; }
         distance += 0.1f * Time.deltaTime;
         distanceTempSpeed += 0.1f * Time.deltaTime;

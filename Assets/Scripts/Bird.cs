@@ -64,6 +64,7 @@ public class Bird : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x + (vel),-maxWidth, maxWidth), transform.localPosition.y, transform.localPosition.z);
         }
 	}
+	
 	public void AddVelocity(){
 		velocity += 0.1f;
 	}

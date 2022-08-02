@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System;
 public class Pedalinho : MonoBehaviour
 {
     [Range(0f, 50f)] public float velocity;
@@ -23,14 +25,19 @@ public class Pedalinho : MonoBehaviour
     public float timeGeral;
     bool setGameOver;
     public int currentPoint;
+    public static Action<GameObject> onDestroyBallon;
     void Start(){
         currentTimeAction = timeToAcceptAction;
         timeGeral = 130f;
+        onDestroyBallon += DestroyBallon;
+    }
+    private void OnDisable() {
+        onDestroyBallon -= DestroyBallon;
     }
     void FixedUpdate()
     {
         Move();
-        Aim();
+        //Aim();
         /*if(timeGeral > 0){
             timeGeral -= 1f * Time.deltaTime;
         }else{
@@ -80,7 +87,7 @@ public class Pedalinho : MonoBehaviour
                     currentFill = Mathf.Abs(currentTimeAction - timeToAcceptAction) / timeToAcceptAction;
                     crossHair.GetComponent<Image>().fillAmount = currentFill;
                 }else{
-                    interact.Execute(this);
+                    interact.Execute(null);
                     crossHair.GetComponent<Image>().enabled = false;
                     _anim.SetTrigger("Shot");
                     ballons++;
@@ -91,6 +98,19 @@ public class Pedalinho : MonoBehaviour
             currentTimeAction = timeToAcceptAction;
             crossHair.GetComponent<Image>().fillAmount = 0f;
         }
+    }
+    public void DestroyBallon(GameObject pos){
+        _anim.SetTrigger("Shot");
+        StartCoroutine("waitShotGun");
+        ballons++;
+        points += 50;
+        GameObject p = Instantiate(ptc);
+        p.transform.position = pos.transform.position;
+        GameObject txt = Instantiate(overPointsText);
+        txt.GetComponentInChildren<TextMeshPro>().text = "+" + points;
+        txt.transform.position = new Vector3(pos.transform.position.x + 0.5f, pos.transform.position.y + 0.5f, pos.transform.position.z);
+        txt.transform.LookAt(Camera.main.transform.position, Vector3.up);
+        Destroy(pos);
     }
     void Move(){
         if(Vector3.Distance(transform.position, path.paths[currentPoint].transform.position) < 1f){
@@ -124,11 +144,11 @@ public class Pedalinho : MonoBehaviour
                     }
                     b.transform.localPosition = Vector3.zero;
                     Vector3 posFinal = Vector3.forward * 10f + Vector3.up * 3f;
-                    float size = Random.Range(1f, 1.4f);
+                    float size = UnityEngine.Random.Range(1f, 1.4f);
                     b.transform.localScale = new Vector3(size, size, size);
-                    b.transform.localPosition = new Vector3(Random.Range(posFinal.x - offsetX, posFinal.x + offsetX),
-                                                        Random.Range(2f, posFinal.y + offsetY),
-                                                        Random.Range(posFinal.z - offsetZ, posFinal.z + offsetZ));
+                    b.transform.localPosition = new Vector3(UnityEngine.Random.Range(posFinal.x - offsetX, posFinal.x + offsetX),
+                                                        UnityEngine.Random.Range(2f, posFinal.y + offsetY),
+                                                        UnityEngine.Random.Range(posFinal.z - offsetZ, posFinal.z + offsetZ));
                     Destroy(b, 7f);
                 }
             }
@@ -141,6 +161,5 @@ public class Pedalinho : MonoBehaviour
         bulletShot.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         bulletShot.SetActive(false);
-
     }
 }

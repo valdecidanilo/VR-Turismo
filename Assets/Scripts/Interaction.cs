@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour
 {
-    public virtual void Execute(Pedalinho p){}
+    public virtual void Execute(Aim a){}
 }

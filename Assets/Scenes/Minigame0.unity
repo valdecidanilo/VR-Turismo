@@ -1006,7 +1006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &213789203
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2956,6 +2956,7 @@ GameObject:
   - component: {fileID: 519055498}
   - component: {fileID: 519055497}
   - component: {fileID: 519055496}
+  - component: {fileID: 519055501}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3067,6 +3068,23 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &519055501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519055494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c68cb653969e9f4eb2025fdf16d661d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossHair: {fileID: 1761292460}
+  layerUI:
+    serializedVersion: 2
+    m_Bits: 256
+  currentTimeAction: 0
 --- !u!4 &534952492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: daf0be5c0dbee164892c357bde8d8346,
@@ -21189,7 +21207,7 @@ PrefabInstance:
     - target: {fileID: 2928704556041881810, guid: 2b71ced87d6ec1248a3a2a5f937606be,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4299310791120568566, guid: 2b71ced87d6ec1248a3a2a5f937606be,
         type: 3}
@@ -21329,7 +21347,7 @@ PrefabInstance:
     - target: {fileID: 6471504892045564035, guid: 2b71ced87d6ec1248a3a2a5f937606be,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b71ced87d6ec1248a3a2a5f937606be, type: 3}

@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class ButtonAction : Interaction
 {
     public bool isInteract;
-    public override void Execute(Pedalinho p){
+    public override void Execute(Aim p){
         if(gameObject.name == "btnRestart"){
-            SceneManager.LoadScene("vinicola");
+            GetComponent<Button>().onClick?.Invoke();
         }
         if(gameObject.name == "btnMenu"){
-            SceneManager.LoadScene("Menu");
+            GetComponent<Button>().onClick?.Invoke();
         }
     }
     public void SetInteracton(bool active){
